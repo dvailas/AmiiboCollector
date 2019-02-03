@@ -38,3 +38,32 @@
     transform: rotate(360deg);
   }
 }
+
+#table tbody{
+  display: flex;
+  flex-wrap:wrap; 
+}
+
+.row
+{
+  font-family: 'Arimo', sans-serif;
+  width:450px;
+  padding: 5px 5px 5px 5px;
+}
+.row p, .row h5
+{
+  padding:1px 1px 1px 1px;
+  margin: 1px 1px 1px 1px;
+}
+.row button
+{
+  margin:10px !important;
+}
+.row h3
+{
+  font-family: 'Arimo', sans-serif;
+}
+.search
+{
+  width:150px;
+}
