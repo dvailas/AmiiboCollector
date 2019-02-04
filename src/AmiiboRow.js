@@ -7,19 +7,27 @@ class AmiiboRow extends React.Component{
   }
 
   render(){
-    return  <tr className="row" key = {this.props.amiibo.id}>
-           <td className="imageColumn">
+    return  <div className="card" key = {this.props.amiibo.id}>
+           <div className="image">
              <img className="amiiboPic" alt="preview"src={this.props.amiibo.image} />
-           </td>
-           <td>
-              <h3>{this.props.amiibo.character}: {this.props.amiibo.amiiboSeries}</h3>
-              <p>Japan Release: {this.props.amiibo.release["jp"]}</p>
-              <p>American Release: {this.props.amiibo.release["na"]}</p>
-              <p>European Release: {this.props.amiibo.release["eu"]}</p>
-              <h5>Type: {this.props.amiibo.type}</h5>
-              <button onClick={this.viewAmiibo.bind(this)}  className="positive ui button">View</button>
-           </td>
-         </tr>
+           </div>
+           <div className="content">
+              <div className="header">{this.props.amiibo.character}: {this.props.amiibo.amiiboSeries}</div>
+              <div className="description">
+                <p>Japan Release: {this.props.amiibo.release["jp"]}</p>
+                <p>American Release: {this.props.amiibo.release["na"]}</p>
+                <p>European Release: {this.props.amiibo.release["eu"]}</p>
+                <h5>Type: {this.props.amiibo.type}</h5>
+              </div>
+              </div>
+              <div className="extra content">
+              <div class="ui buttons">
+                <button onClick={this.viewAmiibo.bind(this)}  className="ui primary button">Add</button>
+                <div class="or"></div>
+                <button onClick={this.viewAmiibo.bind(this)}  className="ui positive button">View</button>
+              </div>
+           </div>
+         </div>
 
   }
 }

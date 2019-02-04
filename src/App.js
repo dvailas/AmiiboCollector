@@ -48,30 +48,31 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <table style={{
+      <header style={{
           backgroundColor:'#000',
           display: 'block',
           color:'#fff',
           paddingLeft:8 }}>
-          <thead>
+        <table >
+          <thead id="headerTitle">
             <tr>
               <td>
                 <img alt="logo"width="90" height="90" src="amiibo_Rune_Icon.png"/>
               </td>
               <td>
-                <h3>Amiibo Collector</h3>
+                <h3><a href="#">Amiibo Collector</a></h3>
               </td>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Collection</td> 
-              <td>About</td>
+            <tr id="menuItems">
+              <td><a href="#">Newly Added </a>|</td>
+              <td><a href="#">Collection </a>|</td>
+              <td><a href="#">About</a></td>
             </tr>
           </tbody>
-        </table>        
-      
-          <input style={{
+        </table>
+        <input style={{
             fontSize:24,
             display:'block',
             width:'99%',
@@ -79,12 +80,12 @@ class App extends Component {
             paddingBottom:8,
             paddingLeft:16
           }}onChange={this.searchChangeHandler.bind(this)} placeholder="Enter keyword" className="search" />
+        </header>
 
-          <table id="table" >
-            <tbody >
+
+            <div className="ui link cards" id="cards">
               {this.state.rows}
-            </tbody>
-          </table>
+            </div>
       </div>
     );
   }

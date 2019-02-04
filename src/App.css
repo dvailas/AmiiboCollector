@@ -22,13 +22,6 @@
   color: #61dafb;
 }
 
-.amiiboPic{
-  width:85%;
-  height:50%;
-}
-.imageColumn{
-  width:150px;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -41,29 +34,77 @@
 
 #table tbody{
   display: flex;
-  flex-wrap:wrap; 
+  flex-wrap:wrap;
 }
-
-.row
+.description
 {
   font-family: 'Arimo', sans-serif;
-  width:450px;
-  padding: 5px 5px 5px 5px;
 }
-.row p, .row h5
+.description h5
 {
   padding:1px 1px 1px 1px;
   margin: 1px 1px 1px 1px;
 }
-.row button
-{
-  margin:10px !important;
-}
-.row h3
+.description h3
 {
   font-family: 'Arimo', sans-serif;
 }
 .search
 {
-  width:150px;
+  position: relative;
+  width:250px !important;
+  bottom: 50px;
+  right:10px;
+  float: right;
+}
+
+#headerTitle
+{
+  display: block;
+}
+#menuItems td
+{
+  display: inline;
+  padding: 1px;
+  margin: 1px;
+}
+#menuItems td a,#headerTitle a
+{
+  font-family: 'Arimo', sans-serif;
+}
+#menuItems td a:link,#headerTitle a:link
+{
+  color:white;
+}
+#menuItems td a:visited, #headerTitle a:visited
+{
+  color:white;
+  transition: 1s;
+}
+#menuItems td a:hover, #headerTitle a:hover
+{
+  color:red;
+  transition: 1s;
+}
+#menuItems td a:active, #headerTitle a:active
+{
+  font-weight: bold;
+}
+#cards
+{
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+.image img
+{
+  position: relative;
+  height:250px !important;
+  width: 250px !important;
+  left: 25px;
+}
+#searchRow
+{
+  position: relative;
+  float: right;
 }
