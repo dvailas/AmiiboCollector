@@ -72,6 +72,16 @@ class App extends Component {
             </tr>
           </tbody>
         </table>
+        <div class="ui dropdown">
+          <input type="hidden" name="gender" />
+          <i class="dropdown icon"></i>
+          <div class="default text">Gender</div>
+          <div class="menu">
+            <div class="item" data-value="character">Character</div>
+            <div class="item" data-value="series">Series</div>
+            <div class="item" data-value="Type">Type</div>
+          </div>
+        </div>
         <input style={{
             fontSize:24,
             display:'block',
