@@ -2,8 +2,9 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 
 class AmiiboRow extends React.Component{
-  viewAmiibo(){
-    console.log("Hi")
+  viewAmiibo(event){
+    console.log(this.props.amiibo.character)
+    window.location.replace("https://amiibo.fandom.com/wiki/" + this.props.amiibo.character);
   }
 
   render(){
