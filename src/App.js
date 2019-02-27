@@ -5,9 +5,9 @@ import $ from 'jquery';
 import { Dropdown } from 'semantic-ui-react'
 
 const options = [
-  { key: 1, text: 'character', value: "character" },
-  { key: 2, text: 'gameseries', value: "series" },
-  { key: 3, text: 'type', value: "type" },
+  { key: 1, text: 'Character', value: "character" },
+  { key: 2, text: 'GameSeries', value: "series" },
+  { key: 3, text: 'Type', value: "type" },
 ]
 
 var searchTerm =""
@@ -61,13 +61,13 @@ class App extends Component {
     //console.log(event.target.value)
      searchTerm = event.target.value
     //to use this it has to be bound by the event
-    this.performSearch(searchTerm,document.getElementsByClassName("selected item")[0].firstChild.innerHTML)
+    this.performSearch(searchTerm,document.getElementsByClassName("selected item")[0].firstChild.innerHTML.toLowerCase())
   }
 
   filterChange(event)
   {
     //console.log(event.target.textContent)
-    filterTerm = event.target.textContent
+    filterTerm = event.target.textContent.toLowerCase()
     this.performSearch(document.getElementsByClassName("search")[0].value,filterTerm)
   }
 
