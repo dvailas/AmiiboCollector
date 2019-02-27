@@ -3,6 +3,8 @@ import './App.css';
 import AmiiboRow from './AmiiboRow.js';
 import $ from 'jquery';
 import { Dropdown } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import About from './pages/About';
 
 const options = [
   { key: 1, text: 'Character', value: "character" },
@@ -73,6 +75,7 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
       <header style={{
           backgroundColor:'#000',
@@ -93,8 +96,8 @@ class App extends Component {
           <tbody>
             <tr id="menuItems">
               <td><a href="#">Newly Added </a>|</td>
-              <td><a href="#">Collection </a>|</td>
-              <td><a href="#">About</a></td>
+              <td><a href="/">Collection </a>|</td>
+              <td><a href="/about">About</a></td>
             </tr>
           </tbody>
         </table>
@@ -110,12 +113,17 @@ class App extends Component {
           <Dropdown placeholder='Select Criteria' fluid selection options={options} id="filterMenu" onChange={this.filterChange.bind(this)}/>
          </form>
         </header>
-
-
+        <Route exact path="/" render={props => (
+          <React.Fragment>
             <div className="ui link cards" id="cards">
               {this.state.rows}
             </div>
+          </React.Fragment>
+        )}/>
+            <Route path="/about" component={About}/>
       </div>
+
+      </Router>
     );
   }
 }
