@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import AmiiboRow from './AmiiboRow.js';
 import $ from 'jquery';
-import FilterDropDown from './filterDropDown';
+import { Dropdown } from 'semantic-ui-react'
 
+const options = [
+  { key: 1, text: 'character', value: "character" },
+  { key: 2, text: 'gameseries', value: "series" },
+  { key: 3, text: 'type', value: "type" },
+]
+
+var searchTerm =""
+var filterTerm =""
 
 class App extends Component {
   constructor(props){
@@ -13,14 +21,24 @@ class App extends Component {
     this.performSearch("*")
   }
 
-  performSearch(searchTerm){
+
+  performSearch(searchTerm,filterTerm){
     var urlString =""
+    console.log(searchTerm)
+    console.log(filterTerm)
     if(searchTerm === "*")
     {
+      console.log("route A")
        urlString = "http://www.amiiboapi.com/api/amiibo/"
     }
+    else if(filterTerm === undefined)
+    {
+      console.log("route B")
+      urlString = "http://www.amiiboapi.com/api/amiibo/?character=" + searchTerm
+    }
     else{
-       urlString = "http://www.amiiboapi.com/api/amiibo/?character=" + searchTerm
+      console.log("route C")
+       urlString = "http://www.amiiboapi.com/api/amiibo/?"+filterTerm+"=" + searchTerm
     }
     $.ajax({
       url :urlString,
@@ -40,10 +58,17 @@ class App extends Component {
   }
 
   searchChangeHandler(event){
-    console.log(event.target.value)
-    const searchTerm = event.target.value
+    //console.log(event.target.value)
+     searchTerm = event.target.value
     //to use this it has to be bound by the event
-    this.performSearch(searchTerm)
+    this.performSearch(searchTerm,document.getElementsByClassName("selected item")[0].firstChild.innerHTML)
+  }
+
+  filterChange(event)
+  {
+    //console.log(event.target.textContent)
+    filterTerm = event.target.textContent
+    this.performSearch(document.getElementsByClassName("search")[0].value,filterTerm)
   }
 
   render() {
@@ -82,7 +107,7 @@ class App extends Component {
             paddingBottom:8,
             paddingLeft:16
           }} placeholder="Enter keyword" className="search" />
-         <FilterDropDown  onClick={console.log("thisworks")}/>
+          <Dropdown placeholder='Select Criteria' fluid selection options={options} id="filterMenu" onChange={this.filterChange.bind(this)}/>
          </form>
         </header>
 

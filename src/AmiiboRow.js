@@ -21,9 +21,9 @@ class AmiiboRow extends React.Component{
               </div>
               </div>
               <div className="extra content">
-              <div class="ui buttons">
+              <div className="ui buttons">
                 <button onClick={this.viewAmiibo.bind(this)}  className="ui primary button">Add</button>
-                <div class="or"></div>
+                <div className="or"></div>
                 <button onClick={this.viewAmiibo.bind(this)}  className="ui positive button">View</button>
               </div>
            </div>
