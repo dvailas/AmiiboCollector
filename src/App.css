@@ -49,14 +49,24 @@
 {
   font-family: 'Arimo', sans-serif;
 }
+#filterMenu
+{
+  position: relative;
+  bottom: 45px;
+  right:15px;
+  width:150px;
+  float: right;
+}
 .search
 {
   position: relative;
   width:250px !important;
-  bottom: 50px;
+  height: 40px;
+  bottom: 45px;
   right:10px;
   float: right;
 }
+
 
 #headerTitle
 {

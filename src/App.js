@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AmiiboRow from './AmiiboRow.js';
 import $ from 'jquery';
+import FilterDropDown from './filterDropDown';
 
 
 class App extends Component {
@@ -72,16 +73,7 @@ class App extends Component {
             </tr>
           </tbody>
         </table>
-        <div class="ui dropdown">
-          <input type="hidden" name="gender" />
-          <i class="dropdown icon"></i>
-          <div class="default text">Gender</div>
-          <div class="menu">
-            <div class="item" data-value="character">Character</div>
-            <div class="item" data-value="series">Series</div>
-            <div class="item" data-value="Type">Type</div>
-          </div>
-        </div>
+        <form onChange={this.searchChangeHandler.bind(this)}>
         <input style={{
             fontSize:24,
             display:'block',
@@ -89,7 +81,9 @@ class App extends Component {
             paddingTop:8,
             paddingBottom:8,
             paddingLeft:16
-          }}onChange={this.searchChangeHandler.bind(this)} placeholder="Enter keyword" className="search" />
+          }} placeholder="Enter keyword" className="search" />
+         <FilterDropDown  onClick={console.log("thisworks")}/>
+         </form>
         </header>
 
 
